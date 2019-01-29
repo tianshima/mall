@@ -1,0 +1,55 @@
+.container {
+    background-color: #f4f4f4;
+}
+
+.goods-card-list {
+    margin-top: 12rpx;
+}
+
+.goods-card-list .goods-card {
+    background-color: white;
+    border-radius: 10rpx;
+    margin-top: 12rpx;
+    padding-bottom: 10rpx;
+}
+
+.goods-card-list .goods-card:active {
+    opacity: 0.5;
+}
+
+.goods-card-list .goods-card .image {
+    width: 100% !important;
+    height: auto !important;
+    padding-bottom: 100% !important;
+    z-index: 0;
+}
+
+.goods-card-list .goods-card .goods-name {
+    margin: 0 10rpx;
+    font-size: 24rpx;
+}
+
+.goods-card-list .goods-card .coupon-price {
+    margin: 0 10rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #ff4422;
+}
+
+.goods-card-list .goods-card .coupon-sold-count {
+    margin-left: 10rpx;
+    font-size: 20rpx;
+    color: #aaaaaa;
+}
+
+.goods-card-list .goods-card .coupon-user-return {
+    font-size: 20rpx;
+    color: #c0904c;
+    background-color: #fdeac2;
+    float: right;
+    margin-right: 10rpx;
+}
+.load-more-text{
+    font-size: 28rpx;
+    color: #aaaaaa;
+}

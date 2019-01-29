@@ -1,0 +1,58 @@
+<view class="search-container">
+    <view class="search-body">
+        <view class="search-input">
+            <wxc-search radius="50" bg-color="#f6f6f6" ph-color="#cbcacf" button="搜索" value="{{inputValue}}"
+                        bind:clear="clearSearchWord" bind:confirm="search" bind:change="changeWord"
+                        btn-style="background:#ea685a;color:white;margin:0 5rpx 0 10rpx;width:80rpx"
+                        placeholder="搜索商品名/复制拼多多商品标题" _/>
+        </view>
+        <wux-filterbar items="{{ sortItems }}"  />
+    </view>
+    <view class="goods-card-list" wx:if="{{goods&&goods.length>0}}">
+        <wux-row gutter="10">
+            <wux-col span="6" wx:for="{{goods}}" wx:key="{{index}}">
+                <view class="goods-card" bindtap="goodsDetail" data-value="{{item.id}}">
+                    <wux-image lazyLoad="{{true}}" wux-class="image" shape="rounded"
+                               src="{{item.goodsImage+index}}">
+                        <image src="/assets/images/image-load.gif" slot="loading" />
+                    </wux-image>
+                    <view class="goods-name wux-ellipsis--l2">
+                        {{item.goodsName}}
+                    </view>
+                    <view class="coupon-price">
+                        <block wx:if="{{item.hasCoupon}}">
+                            <wxc-price icon="sub" value="{{item.couponPrice}}" decimal="str" />
+                            <text style="font-size:20rpx;font-weight: normal;margin-left: 5rpx;">券后价</text>
+                            <view style="float: right">
+                                <text style="background-color: #ea685a;font-size: 18rpx;font-weight: normal;color: white;padding: 5rpx;border-radius: 6rpx;">券</text>
+                                <text style="background-color: #ea685a;font-size: 18rpx;font-weight: normal;color: white;padding: 5rpx;border-radius: 6rpx">￥{{item.couponAmount}}</text>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <wxc-price icon="sub" value="{{item.oldPrice}}" decimal="str" />
+                        </block>
+                    </view>
+                    <wux-row>
+                        <wux-col span="6">
+                            <view class="coupon-sold-count">
+                                {{item.soldCount}}人购买
+                            </view>
+                        </wux-col>
+                        <!--<wux-col span="6">-->
+                            <!--<view class="coupon-user-return">-->
+                                <!--下单返{{item.userGetPoint}}积分-->
+                            <!--</view>-->
+                        <!--</wux-col>-->
+                    </wux-row>
+                </view>
+            </wux-col>
+        </wux-row>
+    </view>
+    <wux-divider wx:if="{{goods&&goods.length>0}}">
+        <view class="weui-loading" wx:if="{{!goodsPage.lastPage}}" />
+        <text class="load-more-text">{{goodsPage.lastPage?'我要坚守住我的底线':'加载中...'}}</text>
+    </wux-divider>
+</view>
+<wxc-abnor type="SEARCH" wx:if="{{!goods||goods.length==0}}"></wxc-abnor>
+<wux-fab-button  action="/assets/images/return-top.png" event="returnTop" wx:if="{{scrollTop>0}}" />
+

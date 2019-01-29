@@ -1,0 +1,132 @@
+<swiper indicator-dots autoplay circular class="goods-image-swiper" indicator-color="white"
+        indicator-active-color="#ea685a">
+    <block wx:for="{{detail.carouselImages}}" wx:key="{{index}}">
+        <swiper-item>
+            <wux-image lazyLoad="{{true}}" wux-class="image" shape="rounded" src="{{item}}">
+                <image src="/assets/images/image-load.gif" slot="loading"/>
+            </wux-image>
+        </swiper-item>
+    </block>
+</swiper>
+<view class="sold-count">
+    <text>已售{{detail.soldCount}}件</text>
+</view>
+
+<view class="detail-info">
+    <wux-row gutter="6">
+        <wux-col span="6">
+            <view class="price">
+                <block wx:if="{{detail.hasCoupon}}">
+                    <text class="coupon-tag">券后价</text>
+                    <wxc-price icon="sub" class="sold-price" value="{{detail.couponPrice}}" decimal="str"/>
+                    <wxc-price symbol="" status="del" del-color="#aaaaaa" class="old-price" value="{{detail.oldPrice}}"
+                               decimal="str"/>
+                </block>
+                <block wx:else>
+                    <wxc-price icon="sub" class="sold-price" value="{{detail.oldPrice}}" decimal="str"/>
+                </block>
+
+            </view>
+        </wux-col>
+    </wux-row>
+    <view class="goods-name">
+        {{detail.goodsName}}
+    </view>
+    <view class="detail-hr"/>
+    <view class="goods-coupon" wx:if="{{detail.hasCoupon}}" bindtap="buyGoods">
+        <wux-row gutter="4">
+            <wux-col span="8">
+                <view class="coupon-left">
+                    <view>
+                        <text class="coupon-amount">{{detail.couponAmount}}</text>
+                        <text style="font-size: 35rpx; font-weight: bold">元优惠券</text>
+                    </view>
+                    \n
+                    <text class="valid-date">使用期限:{{detail.validDate}}</text>
+                </view>
+            </wux-col>
+            <wux-col span="4">
+                <view class="coupon-right">
+                    <button size="mini" class="coupon-btn">立即领券</button>
+                    \n
+                    <text class="left-count">(剩余{{detail.couponLeftCount}}张)</text>
+                </view>
+            </wux-col>
+        </wux-row>
+    </view>
+    <view class="detail-hr" wx:if="{{detail.hasCoupon}}"/>
+    <view style="padding: 6rpx 0;text-align: center">
+        <wux-row>
+            <wux-col span="3" wx:for="{{['优选好货','全场包邮','48小时发货','购物返积分']}}" wx:key="{{index}}">
+                <wux-icon type="ios-checkmark-circle-outline" size="12"/>
+                <text style="font-size: 24rpx;margin-left:8rpx;color: #666666">{{item}}</text>
+            </wux-col>
+        </wux-row>
+    </view>
+    <view class="detail-hr"/>
+    <view class="mall-info">
+        <wux-row gutter="10">
+            <wux-col span="8">
+                <text class="mall-name">{{detail.mallName}}</text>
+            </wux-col>
+            <wux-col span="4" wx:if="{{detail.mallId}}">
+                <button size="mini" class="mall-btn"  bindtap="enterMall" data-value="{{detail.mallId}}" data-label="{{detail.mallName}}">点击进入</button>
+            </wux-col>
+        </wux-row>
+        <view class="mall-score">
+            <view style="font-size: 24rpx;color: #666666;width: 33%;display: inline;float:left;text-align: left">
+                    商家描述
+                    <text style="color: #ff7461;margin-left: 8rpx">4.82</text>
+            </view>
+            <view style="font-size: 24rpx;color: #666666;width: 33%;display: inline;">
+                    物流服务
+                    <text style="color: #ff7461;margin-left: 8rpx">4.82</text>
+            </view>
+            <view style="font-size: 24rpx;color: #666666;width: 33%;display: inline;float: right;text-align: right">
+                    卖家服务
+                    <text style="color: #ff7461;margin-left: 8rpx">4.82</text>
+            </view>
+        </view>
+    </view>
+    <view class="detail-hr" wx:if="{{detail.sameGoods&&detail.sameGoods.length>0}}"/>
+    <view class="same-goods" wx:if="{{detail.sameGoods&&detail.sameGoods.length>0}}">
+        <view>
+            <view class="title-bg"/>
+            <text class="title">相似推荐</text>
+        </view>
+        <view style="padding: 10rpx">
+            <scroll-view class='list' scroll-x>
+                <view wx:for="{{detail.sameGoods}}" wx:key="{{index}}" class="item" bindtap="getDetail" data-value="{{item.id}}">
+                    <image src='{{item.goodsImage}}' mode="aspectFill"/>
+                    <text class="same-goods-name wux-ellipsis--l2">{{item.goodsName}}</text>
+                    <wxc-price class="sold-price" value="{{item.soldPrice}}" decimal="str"/>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="detail-hr"/>
+    <view class="goods-desc">
+        <view>
+            <view class="title-bg"/>
+            <text class="title">商品详情</text>
+        </view>
+        <view style="padding: 10rpx 5rpx">
+            <text class="content">{{detail.goodsDesc}}</text>
+        </view>
+    </view>
+    <image wx:for="{{detail.carouselImages}}" wx:key="{{index}}" style="width: 100%;margin-bottom: -12rpx"
+           src='{{item}}' mode="widthFix"/>
+    <view style="height: 50px"></view>
+</view>
+<van-goods-action>
+    <van-goods-action-icon icon="wap-home" text="首页" bind:click="returnHome"/>
+    <block wx:if="{{detail.like}}">
+        <van-goods-action-icon icon="like" iconColor="#ea685a" text="收藏" bind:click="like"/>
+    </block>
+    <block wx:else>
+        <van-goods-action-icon icon="like-o"  text="收藏" bind:click="unlike"/>
+    </block>
+
+    <van-goods-action-icon icon="share" text="分享" openType="share"/>
+    <van-goods-action-button type="warning" text="立即购买" style="font-size: 24rpx" bind:click="buyGoods"/>
+</van-goods-action>

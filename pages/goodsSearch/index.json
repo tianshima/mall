@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "搜券",
+  "usingComponents": {
+    "wxc-search": "/component/minui/wxc-search/index",
+    "wux-dialog": "/component/wux/dialog/index"
+  }
+}

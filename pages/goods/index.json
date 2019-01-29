@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "wux-image": "/component/wux/image/index",
+    "wxc-price": "/component/minui/wxc-price/index",
+    "wux-row": "/component/wux/row/index",
+    "wux-col": "/component/wux/col/index",
+    "wux-icon": "/component/wux/icon/index",
+    "van-goods-action":"/component/vant/goods-action/index",
+    "van-goods-action-icon": "/component/vant/goods-action-icon/index",
+    "van-goods-action-button": "/component/vant/goods-action-button/index",
+    "wux-rater": "/component/wux/rater/index"
+  }
+}

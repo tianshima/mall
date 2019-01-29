@@ -1,0 +1,18 @@
+{
+  "navigationBarTitleText": "多惠团商城",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "wxc-search": "/component/minui/wxc-search/index",
+    "wxc-price": "/component/minui/wxc-price/index",
+    "van-tabs": "/component/vant/tabs/index",
+    "van-tab": "/component/vant/tab/index",
+    "wux-wing-blank": "/component/wux/wing-blank/index",
+    "wux-white-space": "/component/wux/white-space/index",
+    "wux-row": "/component/wux/row/index",
+    "wux-col": "/component/wux/col/index",
+    "wux-image": "/component/wux/image/index",
+    "wux-divider": "/component/wux/divider/index",
+    "wux-fab-button": "/component/wux/floating-button/index",
+    "wux-notice-bar": "/component/wux/notice-bar/index"
+  }
+}

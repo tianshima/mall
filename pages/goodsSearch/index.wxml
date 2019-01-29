@@ -1,0 +1,39 @@
+<view class="search-container">
+    <view class="search-body">
+        <view class="search-input">
+            <wxc-search radius="50" bg-color="#f6f6f6" ph-color="#cbcacf" button="搜索" value="{{inputValue}}"
+                        bind:clear="clearSearchWord" bind:confirm="search" bind:change="changeWord"
+                        btn-style="background:#ea685a;color:white;margin:0 5rpx 0 40rpx;width:80rpx"
+                        placeholder="搜索商品名/复制拼多多商品标题" _/>
+        </view>
+        <view class="search-words" wx:if="{{historyWords&&historyWords.length>0}}">
+            <view class="name">
+                历史搜索
+            </view>
+            <view class="clear" bindtap="clearSearchHistory">
+                清除搜索记录
+            </view>
+            <view class="list">
+                <block  wx:for="{{historyWords}}" wx:key="{{index}}">
+                <view class="word wux-ellipsis" bindtap="chooseWord" data-value="{{item}}" >
+                        {{item}}
+                </view>
+                </block>
+            </view>
+        </view>
+        <view class="search-words" wx:if="{{hotWords&&hotWords.length>0}}">
+            <view class="name">
+                大家都在搜
+            </view>
+            <view class="list">
+                <block  wx:for="{{hotWords}}" wx:key="{{index}}">
+                    <view class="word wux-ellipsis" bindtap="chooseWord" data-value="{{item}}" >
+                        {{item}}
+                    </view>
+                </block>
+
+            </view>
+        </view>
+    </view>
+</view>
+<wux-dialog id="wux-dialog" />

@@ -1,0 +1,203 @@
+/* pages/goods/index.wxss */
+.goods-image-swiper {
+    width: 100%;
+    height: 50%;
+}
+
+.goods-image-swiper .image {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.sold-count {
+    z-index: 100;
+    background-color: rgba(51, 51, 51, 0.5);
+    position: absolute;
+    right: 30rpx;
+    top: 43%;
+    border-radius: 30rpx;
+    padding: 0 20rpx 5rpx 20rpx;
+}
+
+.sold-count text {
+    color: white;
+    font-size: 24rpx;
+    line-height: 24rpx;
+}
+
+.detail-info {
+    top: 50%;
+    bottom: 100rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    padding: 10rpx 0 10rpx 0;
+}
+
+.detail-info .price {
+    font-size: 24rpx;
+    color: #ea685a;
+}
+
+.detail-info .price .sold-price {
+    font-size: 40rpx;
+    margin-right: 10rpx;
+}
+
+.detail-info .goods-name {
+    font-size: 28rpx;
+    padding-left: 10rpx;
+    margin-bottom: 15rpx;
+    font-weight: 500;
+}
+
+.detail-info .goods-coupon {
+    background: linear-gradient(to right, #ff9469, #ff6f5d);
+    padding: 25rpx 0 10rpx 0;
+    color: white;
+    border-radius: 10rpx;
+    text-align: center;
+    margin: 30rpx 40rpx;
+}
+
+.detail-info .goods-coupon:active {
+    opacity:0.5;
+}
+
+
+.detail-info .goods-coupon .coupon-left {
+    border-right: 2rpx dashed white;
+}
+
+.detail-info .goods-coupon .coupon-left .coupon-amount {
+    font-size: 45rpx;
+    padding-left: 30rpx;
+    padding-right: 10rpx;
+    color: yellow;
+}
+
+.detail-info .goods-coupon .coupon-left .valid-date {
+    font-size: 20rpx;
+    font-weight: normal;
+    background-color: rgba(255, 153, 116, 0.3);
+    border-radius: 10rpx;
+    padding: 15rpx 8rpx;
+    vertical-align: middle;
+    margin: 20rpx auto;
+}
+
+.detail-info .goods-coupon .coupon-right {
+    padding: 4rpx 20rpx 0 20rpx;
+    vertical-align: middle;
+}
+
+.detail-info .goods-coupon .coupon-right .coupon-btn {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 40rpx;
+    font-size: 25rpx;
+    color: #ea685a;
+    font-weight: 500;
+}
+
+.detail-info .goods-coupon .coupon-right .left-count {
+    color: white;
+    font-size: 20rpx;
+}
+
+.detail-info .detail-hr {
+    background-color: #EEEEEE;
+    height: 16rpx;
+}
+
+.detail-info .mall-info {
+    padding: 25rpx 0 10rpx 0;
+}
+
+.detail-info .mall-info .mall-name {
+    font-weight: 500;
+    font-size: 30rpx;
+}
+
+.detail-info .mall-info .mall-btn {
+    background: linear-gradient(to right, #ff4961, #ff8951);
+    border-radius: 40rpx;
+    font-size: 25rpx;
+    color: white;
+    font-weight: bold;
+    float: right;
+}
+
+.detail-info .mall-info .mall-btn:active {
+    opacity: 0.5;
+}
+
+.detail-info .mall-info .mall-score {
+    padding: 0 20rpx;
+    text-align: center;
+    margin-top: 30rpx;
+}
+
+.detail-info .same-goods {
+    padding: 20rpx 10rpx 10rpx 10rpx;
+    line-height: 35rpx;
+}
+
+.detail-info .same-goods .title {
+    font-weight: 350;
+    font-size: 28rpx;
+}
+
+.detail-info .same-goods .list {
+    width: 100%;
+    white-space: nowrap;
+}
+
+.detail-info .same-goods .list .item {
+    display: inline-block;
+    width: 32%;
+    margin: 0 2% 0 0;
+}
+
+.detail-info .same-goods .list .item:active {
+    opacity: 0.5;
+}
+
+.detail-info .same-goods .list .item image {
+    width: 100%;
+    height: 240rpx;
+}
+
+.detail-info .same-goods .list .item .same-goods-name {
+    font-size: 24rpx;
+    font-weight: 300;
+    white-space: normal;
+}
+
+.detail-info .same-goods .list .item .sold-price {
+    color: #ff745f;
+    font-size: 24rpx;
+}
+
+.title-bg {
+    background-color: #ff745f;
+    width: 15rpx;
+    height: 35rpx;
+    margin: 0 20rpx 0 8rpx;
+    float: left;
+}
+
+.detail-info .goods-desc {
+    padding: 20rpx 10rpx 10rpx 10rpx;
+    line-height: 35rpx;
+
+}
+
+.detail-info .goods-desc .title {
+    font-weight: 350;
+    font-size: 28rpx;
+}
+
+.detail-info .goods-desc .content {
+    color: #999999;
+    font-size: 24rpx;
+}

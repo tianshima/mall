@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "wxc-price": "/component/minui/wxc-price/index",
+    "wux-row": "/component/wux/row/index",
+    "wux-col": "/component/wux/col/index",
+    "wux-image": "/component/wux/image/index",
+    "wux-divider": "/component/wux/divider/index",
+    "wxc-abnor":"/component/minui/wxc-abnor/index",
+    "wux-fab-button": "/component/wux/floating-button/index"
+  }
+}

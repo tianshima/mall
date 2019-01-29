@@ -1,0 +1,3 @@
+@import 'assets/styles/weui.wxss';
+@import 'component/wux/styles/index.wxss';
+@import 'assets/styles/skyvow.wxss';
